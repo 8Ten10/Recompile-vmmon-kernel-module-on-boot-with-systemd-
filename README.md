@@ -83,7 +83,8 @@ sudo systemctl start
 vmware-usbarbitrator
 ```
 I did not try but there are many other ways to get this issue fixed. 
-The first option would be to add the line `**ibt=off**` to your kernel command line.
+The first option would be to add the line `ibt=off` to your kernel command line.
+
 The other option would be to load the modules at boot with `modules-load.d`
 ```console
 sudo mkdir /etc/modules-load.d
