@@ -4,7 +4,7 @@ Anyone who has used Vmware on linux knows very well that it tends to break after
 
 This command, used to manually recompile VMware kernel modules, should fix any break after updating the linux kernel:
 
-**`sudo vmware-modconfig --console --install-all`
+**`sudo vmware-modconfig --console --install-all`**
 
 Now, for some reason, the module `vmmon` doesn't load when my computer boot up. I have to type the command above every time i restart my OS to use VMware.
 It is woth mentioning that I am running `RHEL 9` , Linux kernel `5.14.0-70.26.1` with secure boot disabled 
