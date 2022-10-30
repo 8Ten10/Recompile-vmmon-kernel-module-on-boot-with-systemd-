@@ -79,8 +79,7 @@ sudo systemctl enable vmware.service
 sudo systemctl enable vmware-usbarbitrator
 sudo systemctl start vmware-modules-rebuild
 sudo systemctl start vmware.service
-sudo systemctl start
-vmware-usbarbitrator
+sudo systemctl start vmware-usbarbitrator
 ```
 I did not try but there are many other ways to get this issue fixed. 
 
@@ -104,7 +103,7 @@ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/sy
 
 https://wiki.archlinux.org/title/VMware
 
-https://confluence.jaytaala.com/display/TKB/Recompile+VMWare+Workstation+%28or+player%29+kernel+modules+on+boot+with+systemd+service
+https://confluence.jaytaala.com/display/TKB/Recompile+VMWare+Workstation+%28or+player%29+kernel+modules+on+boot+with+systemd+servic
 
 https://www.freedesktop.org/software/systemd/man/systemd.service.html
 
