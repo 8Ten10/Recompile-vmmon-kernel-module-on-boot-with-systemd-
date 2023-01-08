@@ -7,7 +7,8 @@ This command, used to manually recompile VMware kernel modules, should fix any b
 **`sudo vmware-modconfig --console --install-all`**
 
 Now, for some reason, the module `vmmon` doesn't load when my computer boots up. I have to type the command above every time i restart my OS to use VMware.
-It is woth mentioning that I am running `RHEL 9` , Linux kernel `5.14.0-70.26.1` with secure boot disabled 
+It is worth mentioning that I am running `RHEL 9` , Linux kernel `5.14.0-70.26.1` with secure boot disabled 
+
 ```console
 $ dmesg | grep -i secure
 [    0.000000] secureboot: Secure boot disabled
@@ -20,6 +21,7 @@ I decided to set up a systemd service to automate that command at every restart.
 Three services are needed and will  be installed in **/etc/systemd/system/**
 
 The first service is `sudo vim /etc/systemd/system/vmware-modules-rebuild.service` and paste this code:
+
 ```console
 [Unit]
 Description=Recompiles vmware modules
@@ -55,6 +57,7 @@ WantedBy=multi-user.target
 
 and the last service 
 `sudo vim /etc/systemd/system/vmware-usbarbitrator.service` and paste
+
 ```console
 [Unit]
 Description=VMware USB Arbitrator
@@ -86,6 +89,7 @@ I did not try but there are many other ways to get this issue fixed.
 The first option would be to add the line `ibt=off` to your kernel command line.
 
 The other option would be to load the modules at boot with `modules-load.d`
+
 ```console
 sudo mkdir /etc/modules-load.d
 sudo vim /etc/modules-load.d/vmware.conf
