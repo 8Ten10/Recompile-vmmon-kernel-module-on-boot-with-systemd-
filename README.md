@@ -1,12 +1,12 @@
 # Recompile kernel modules on boot with systemd
 
-Anyone who has used Vmware on linux knows very well that it tends to break after updating the linux kernel. To fix that, you could get back to the previously working linux kernel, wait for the Vmware team to update vmware kernel modules, or ... manually recompile the modules
+Vmware tends to break after updating the kernel. To fix that, you could get back to the previously working kernel, wait for the Vmware team to update vmware kernel modules, or ... manually recompile the modules
 
 This command, used to manually recompile VMware kernel modules, should fix any break after updating the linux kernel:
 
 **`sudo vmware-modconfig --console --install-all`**
 
-Now, for some reason, the module `vmmon` doesn't load when my computer boots up. I have to type the command above every time i restart my OS to use VMware.
+Now, for some reason, the module `vmmon` is not loaded when my computer boots up. 
 It is worth mentioning that I am running `RHEL 9` , Linux kernel `5.14.0-70.26.1` with secure boot disabled 
 
 ```console
@@ -14,7 +14,7 @@ $ dmesg | grep -i secure
 [    0.000000] secureboot: Secure boot disabled
 ```
 
-I decided to set up a systemd service to automate that command at every restart.
+A systemd service to fix that.
 
 # Creating Systemd Services
 
@@ -101,14 +101,3 @@ vmnet
 sudo modprobe -v vmmon
 reboot
 ```
-
-# References
-https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/chap-managing_services_with_systemd
-
-https://wiki.archlinux.org/title/VMware
-
-https://confluence.jaytaala.com/display/TKB/Recompile+VMWare+Workstation+%28or+player%29+kernel+modules+on+boot+with+systemd+servic
-
-https://www.freedesktop.org/software/systemd/man/systemd.service.html
-
-https://community.clearlinux.org/t/vmware-workstation-pro-post-installation-issues/5612
